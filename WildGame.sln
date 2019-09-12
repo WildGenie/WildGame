@@ -3,9 +3,26 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29230.61
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebServer", "WebServer", "{D7516A22-E120-403B-BB17-6B5A3CBE468B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WildWebServer", "Web\WildWebServer\WildWebServer.csproj", "{70BBE4F0-F193-41E1-895E-5708DF3E09C0}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70BBE4F0-F193-41E1-895E-5708DF3E09C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70BBE4F0-F193-41E1-895E-5708DF3E09C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70BBE4F0-F193-41E1-895E-5708DF3E09C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70BBE4F0-F193-41E1-895E-5708DF3E09C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70BBE4F0-F193-41E1-895E-5708DF3E09C0} = {D7516A22-E120-403B-BB17-6B5A3CBE468B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ACB23551-62C0-4BA6-87A7-C13460FF047C}
