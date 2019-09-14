@@ -503,6 +503,50 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &599716886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599716887}
+  - component: {fileID: 599716888}
+  m_Layer: 5
+  m_Name: SignalR Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &599716887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599716886}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1535389321}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599716888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599716886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bfc15a88f4d3264580fd2bf00cfd6f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ChatController: {fileID: 1093300044}
 --- !u!1 &655286160
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,6 +1025,7 @@ MonoBehaviour:
   TMP_ChatInput: {fileID: 1856700218}
   TMP_ChatOutput: {fileID: 1641939327}
   ChatScrollbar: {fileID: 1511748069}
+  SignalR: {fileID: 599716888}
 --- !u!1 &1222391735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,6 +1215,7 @@ RectTransform:
   - {fileID: 1856700217}
   - {fileID: 528619526}
   - {fileID: 1093300043}
+  - {fileID: 599716887}
   m_Father: {fileID: 222810365}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

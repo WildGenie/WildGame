@@ -12,6 +12,8 @@ public class ChatController : MonoBehaviour {
 
     public Scrollbar ChatScrollbar;
 
+    public SignalR SignalR;
+
     void OnEnable()
     {
         TMP_ChatInput.onSubmit.AddListener(AddToChatOutput);
@@ -24,6 +26,19 @@ public class ChatController : MonoBehaviour {
 
     }
 
+    public void  ReciveChatMessage(string name, string message)
+    {
+        // Clear Input Field
+
+        var timeNow = System.DateTime.Now;
+
+        TMP_ChatOutput.text +=
+            $"[<#FFFF80>{timeNow:T}</color>] [<#FF8080>{name}</color>] {message}\n";
+
+        // Set the scrollbar to the bottom when next text is submitted.
+        ChatScrollbar.value = 0;
+
+    }
 
     void AddToChatOutput(string newText)
     {
@@ -32,7 +47,9 @@ public class ChatController : MonoBehaviour {
 
         var timeNow = System.DateTime.Now;
 
-        TMP_ChatOutput.text += "[<#FFFF80>" + timeNow.Hour.ToString("d2") + ":" + timeNow.Minute.ToString("d2") + ":" + timeNow.Second.ToString("d2") + "</color>] " + newText + "\n";
+        //TMP_ChatOutput.text += "[<#FFFF80>" + timeNow.Hour.ToString("d2") + ":" + timeNow.Minute.ToString("d2") + ":" + timeNow.Second.ToString("d2") + "</color>] " + newText + "\n";
+
+        this.SignalR.Send(newText);
 
         TMP_ChatInput.ActivateInputField();
 
