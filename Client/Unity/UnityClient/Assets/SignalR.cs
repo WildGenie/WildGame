@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.SignalR.Client;
 using System.Net;
-using System.Net.Security;
-using System.Security.Cryptography.X509Certificates;
-
-using UnityEngine;
-using Microsoft.AspNetCore.SignalR.Client;
 using System.Threading.Tasks;
-
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class SignalR : MonoBehaviour
@@ -19,10 +12,12 @@ public class SignalR : MonoBehaviour
 
     public ChatController ChatController;
 
+    static InvokePump invoke = new InvokePump();
 
     void Start()
     {
-        ServicePointManager.ServerCertificateValidationCallback = delegate {return true;};
+        ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
 
         Debug.Log("Hello World!");
         connection = new HubConnectionBuilder()
@@ -40,15 +35,17 @@ public class SignalR : MonoBehaviour
 
     private async void Connect()
     {
-        connection.On<string, string>("ReceiveMessage", (name, message) =>
+        connection.On("ReceiveMessage", (System.Action<string, string>)((name, message) =>
         {
             Debug.Log($"{name}: {message}");
-            this.ChatController.ReciveChatMessage(name, message);
-        });
+            //this.ChatController.ReciveChatMessage(name, message);
+            invoke.BeginInvoke(() => this.ChatController.ReciveChatMessage(name, message));
+            //StartCoroutine(this.ChatController.ReciveChatMessageSafe(name, message));
+        }));
 
         //try
         //{
-            await connection.StartAsync();
+        await connection.StartAsync();
 
         //    Debug.Log("Connection started");
         //}
@@ -77,6 +74,6 @@ public class SignalR : MonoBehaviour
 
     private void Update()
     {
-        transform.position = new Vector2(x, 0);
+        invoke.Update();
     }
 }
